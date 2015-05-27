@@ -1,0 +1,14 @@
+<h1>Tickets list</h1>
+<section>
+  <% for @ticket in @tickets %>
+      <div>
+        <%= @ticket.title %>
+        <%= @ticket.description %>
+        <%= @ticket.enabled %>
+        <%= @ticket.date_create %>
+      </div>
+  <% end %>
+  <p>
+    Total tickets: <%= @tickets.length %>
+  </p>
+</section>
