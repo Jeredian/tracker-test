@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150527111051) do
+ActiveRecord::Schema.define(version: 20150527145711) do
 
   create_table "tickets", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.boolean  "enabled",     default: false
+    t.boolean  "enabled",     default: true
     t.datetime "date_create", default: '2015-05-27 11:51:55'
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false

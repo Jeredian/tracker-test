@@ -5,11 +5,11 @@ class TicketsController < ApplicationController
   end
 
   def new
-    @ticket = @tickets.build
+    @ticket = @tickets.new
   end
 
   def create
-    @ticket = @tickets.build
+    @ticket = @tickets.new(ticket_params)
     if @ticket.save
       puts "Ticket has been created."
       render :action => "show"
@@ -17,6 +17,11 @@ class TicketsController < ApplicationController
       puts "Ticket has not been created."
       render :action => "new"
     end
+  end
+
+  private
+  def ticket_params
+    params.require(:ticket).permit(:title, :description)
   end
 
   private
