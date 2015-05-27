@@ -26,6 +26,6 @@ class TicketsController < ApplicationController
 
   private
   def get_tickets
-    @tickets = Ticket.all
+    @tickets = Ticket.all.where('enabled=?',true)
   end
 end
