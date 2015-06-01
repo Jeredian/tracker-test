@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  enabled: false
+  date_create: 2015-06-01 10:25:48
+
+two:
+  name: MyString
+  enabled: false
+  date_create: 2015-06-01 10:25:48

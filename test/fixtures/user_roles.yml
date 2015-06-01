@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  admin_panel: 
+  add_project: 
+  add_ticket: 
+  enabled: 
+  date_create: 2015-06-01 10:13:08
+
+two:
+  name: 
+  admin_panel: 
+  add_project: 
+  add_ticket: 
+  enabled: 
+  date_create: 2015-06-01 10:13:08
