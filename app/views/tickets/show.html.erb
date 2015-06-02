@@ -1,11 +1,13 @@
+<a href="/tickets/new">Create new ticket</a>
 <h1>Tickets list</h1>
 <section>
   <% for @ticket in @tickets %>
       <div>
         <%= @ticket.title %>
         <%= @ticket.description %>
-        <%= @ticket.enabled %>
+        <%= @ticket.project_id %>
         <%= @ticket.date_create %>
+        <%= link_to "Remove", @ticket, method: :delete, data: { confirm: "Are you sure?" } %>
       </div>
   <% end %>
   <p>

@@ -1,0 +1,20 @@
+<div>
+  <h3>Projects#new</h3>
+  <%= render 'form' %>
+</div>
+<div>
+  <h4>ProjectList</h4>
+  <div>
+    <% for @proj in @projectList %>
+        <div>
+          <%= @proj.name %>
+          <%= @proj.description %>
+          <%= @proj.date_create %>
+          <%= link_to "Remove", @proj, method: :delete, data: { confirm: "Are you sure?" } %>
+        </div>
+    <% end %>
+  </div>
+</div>
+
+
+

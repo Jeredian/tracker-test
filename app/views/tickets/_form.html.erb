@@ -7,5 +7,14 @@
       <%= f.label :description %>
       <%= f.text_area :description %>
     </p>
+    <p>
+      <%= f.label :project_id %>
+      <%= f.select(:project_id,
+                   options_for_select(@project_list.collect {|p| [p.name,p.id]})
+          )
+      %>
+      </p>
     <%= f.submit %>
 <% end %>
+
+<%= @ticket.project_id %>
