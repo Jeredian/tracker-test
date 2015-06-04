@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :users
 
   get 'projects/show'
-
+  get 'projects/edit'
   get 'projects/new'
   resources :projects
 

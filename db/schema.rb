@@ -11,34 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150602144042) do
+ActiveRecord::Schema.define(version: 20150604115256) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.boolean  "enabled",     default: true
-    t.datetime "date_create", default: '2015-06-01 07:31:24'
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "tickets", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.boolean  "enabled",     default: true
-    t.datetime "date_create", default: '2015-06-01 07:31:23'
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "project_id"
   end
 
   create_table "user_projects", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "project_id"
-    t.boolean  "enabled",     default: true
-    t.datetime "date_create", default: '2015-06-01 07:31:24'
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.boolean  "enabled",    default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "user_roles", force: :cascade do |t|
@@ -47,9 +44,8 @@ ActiveRecord::Schema.define(version: 20150602144042) do
     t.boolean  "add_project", default: false
     t.boolean  "add_ticket",  default: true
     t.boolean  "enabled",     default: true
-    t.datetime "date_create", default: '2015-06-01 07:31:24'
-    t.datetime "created_at",                                  null: false
-    t.datetime "updated_at",                                  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -58,9 +54,8 @@ ActiveRecord::Schema.define(version: 20150602144042) do
     t.string   "password"
     t.integer  "user_role_id", default: 2
     t.boolean  "enabled",      default: true
-    t.datetime "date_create",  default: '2015-06-01 07:31:24'
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
 end

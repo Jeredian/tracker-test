@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @userList = getUserList()
+    @user_list = getUserList()
   end
 
   def new
@@ -27,5 +27,7 @@ class UsersController < ApplicationController
   private
   def getUserList
     return User.where(enabled: true)
+    #.includes(:user_role)
+    #.references(:user_role)
   end
 end

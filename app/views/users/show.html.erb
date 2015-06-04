@@ -1,2 +1,7 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h3>User list</h3>
+<% for @user in @user_list %>
+ <div>
+   <%= @user.name %>
+   <%= @user.user_role_id %>
+ </div>
+<% end %>

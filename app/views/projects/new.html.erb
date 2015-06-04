@@ -5,14 +5,22 @@
 <div>
   <h4>ProjectList</h4>
   <div>
-    <% for @proj in @projectList %>
-        <div>
-          <%= @proj.name %>
-          <%= @proj.description %>
-          <%= @proj.date_create %>
-          <%= link_to "Remove", @proj, method: :delete, data: { confirm: "Are you sure?" } %>
-        </div>
-    <% end %>
+    <table class="table table-striped table-bordered table-condensed table-hover">
+      <% for @proj in @project_list %>
+          <tr>
+            <td><%= @proj.name %></td>
+            <td><%= @proj.description %></td>
+            <td><%= @proj.created_at %>></td>
+            <td style="width: 90px;">
+              <%= link_to "Remove", @proj,class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+            </td>
+            <td style="width: 60px;">
+              <%= link_to "Edit",edit_project_path(@proj),class:"btn btn-info" %>
+            </td>
+          </tr>
+      <% end %>
+    </table>
+
   </div>
 </div>
 

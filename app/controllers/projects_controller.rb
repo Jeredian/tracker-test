@@ -1,7 +1,11 @@
 class ProjectsController < ApplicationController
   def new
     @project = Project.new
-    @projectList = getProjectList()
+    @project_list = getProjectList()
+  end
+
+  def edit
+    @project = Project.find(params[:id])
   end
 
   def create
@@ -9,9 +13,19 @@ class ProjectsController < ApplicationController
     if @project.new_record?
       if @project.save
         puts 'Project has been created.'
-        @projectList = getProjectList()
+        @project_list = getProjectList()
         render action: 'new'
       end
+    end
+  end
+
+  def update
+    @project = Project.find(params[:id])
+    if @project.update(project_params)
+      @project_list = getProjectList()
+      render action: 'new'
+    else
+      render action: 'edit'
     end
   end
 
@@ -23,7 +37,7 @@ class ProjectsController < ApplicationController
       if @tickets.update_all(enabled: false)
         puts 'Project has not been deleted.'
       end
-      @projectList = getProjectList()
+      @project_list = getProjectList()
       render action: 'new'
     else
       puts 'Something is wrong. :/'

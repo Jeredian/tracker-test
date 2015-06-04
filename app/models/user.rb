@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+#  has_one :user_role
+
   validates :name,  presence: true,
                     length: {minimum: 3}
   validates :email, presence: true,

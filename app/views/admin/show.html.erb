@@ -1,19 +1,8 @@
-<div style="float:left; width: 400px;">
-    <span>Logged as <%= @userRoot.name %> [<%= @userRoot.email %>]</span>
-</div>
 <div>
   <h3>Oh, hello there. Now u are see a simple admin page</h3>
-  <div>
-    <ul style="list-style: none;">
-      <li>
-        <a href="/users/show">Manage users</a>
-      </li>
-      <li>
-        <a href="/projects/new">Create new project</a>
-      </li>
-      <li>
-        <a href="/tickets/new">Create new ticket</a>
-      </li>
-    </ul>
+  <div class="text-center">
+    <a class="btn btn-success" href="/users/show">Manage users</a>
+    <a class="btn btn-info"href="/projects/new">Create new project</a>
+    <a class="btn btn-warning" href="/tickets/new">Create new ticket</a>
   </div>
 </div>
