@@ -1,0 +1,10 @@
+<section>
+  <table>
+      <% @project_list.each do |project| %>
+        <tr>
+          <td><%= project.name %></td>
+          <td><input type="checkbox"></td>
+        </tr>
+      <% end %>
+  </table>
+</section>

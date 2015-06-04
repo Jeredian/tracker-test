@@ -1,7 +1,18 @@
 <h3>User list</h3>
-<% for @user in @user_list %>
- <div>
-   <%= @user.name %>
-   <%= @user.user_role_id %>
- </div>
-<% end %>
+<table class="table table-striped table-bordered table-condensed">
+  <% @user_list.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.password %></td>
+      <td><%= user.user_role.name %></td>
+      <td style="width: 90px;">
+        <%= link_to 'Remove', user,class:"btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+      </td>
+      <td style="width: 60px;">
+        <%= link_to 'Edit',edit_user_path(user),class:"btn btn-info" %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+

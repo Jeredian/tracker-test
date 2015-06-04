@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-#  has_one :user_role
+  belongs_to :user_role
+  has_many :user_projects
+  has_many :tickets
 
   validates :name,  presence: true,
                     length: {minimum: 3}

@@ -17,7 +17,21 @@ class UsersController < ApplicationController
     end
   end
 
-  #TODO add update user
+  def edit
+    @user = User.find(params[:id])
+    @project_list = Project.where(enabled: true)
+    #@user_project = UserProject.where(user_id: params[:id], enabled: true)
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      @user_list = getUserList()
+      render action: 'show'
+    else
+      render action: 'edit'
+    end
+  end
 
   private
   def user_params
@@ -26,7 +40,9 @@ class UsersController < ApplicationController
 
   private
   def getUserList
-    return User.where(enabled: true)
+    return User.eager_load(:user_role).where(enabled: true)
+    #, user_role: { enable:true }
+    #.eager_load()
     #.includes(:user_role)
     #.references(:user_role)
   end

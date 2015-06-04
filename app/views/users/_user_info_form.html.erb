@@ -1,0 +1,20 @@
+<%= form_for @user  do |f| %>
+<p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+</p>
+<p>
+    <%= f.label :email %>
+    <%= f.text_area :email %>
+</p>
+<p>
+    <%= f.label :password %>
+    <%= f.text_area :password %>
+</p>
+<p>
+  <%# unless @project_list.blank? %>
+      <%# f.association :projects, :as => :check_boxes, :collection => @project_list, :label => 'Projects'  %>
+  <%# end %>
+</p>
+<%= f.submit %>
+<% end %>
