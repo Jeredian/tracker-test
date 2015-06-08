@@ -16,6 +16,14 @@
             )
         %>
       </div>
+      <div class="form-group">
+        <%= f.label :worker, class:'form-label'  %>
+        <%= f.select(:worker,
+                     options_for_select(@user_list.collect {|p| [p.name,p.id]}),
+                     class:'form-control'
+            )
+        %>
+      </div>
       <%= f.submit class:'btn btn-success'%>
     </div>
 <% end %>

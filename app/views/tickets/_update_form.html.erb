@@ -10,15 +10,33 @@
    </div>
    <div class="form-group">
      <%= f.label :project_id , class: 'control-label'%>
-     <span class="badge"><%= @ticket.name %></span>
+     <span class="badge">
+       <%= link_to @ticket.name, '/projects/'+@ticket.project_id.to_s, style:'color:#fff;' %>
+     </span>
    </div>
    <div class="form-group">
-     <%= f.label :state,class: 'control-label' %>
-     <%= f.select(:state,
-                  options_for_select(@states.collect {|p| [p.name,p.name]}),
+     <%= f.label :worker, class:'form-label'  %>
+     <%= f.select(:worker,
+                  options_for_select(@user_list.collect {|p| [p.name,p.id]}),
                   class:'form-control'
          )
      %>
+   </div>
+   <div class="form-group">
+     <%= f.label :state,class: 'control-label' %>
+     <% if !@states.blank? %>
+     <div>Now state is: <small class="text-info"><%= @ticket.state %></small></div>
+     <span>Set it as:</span>
+     <%= f.select(:state,
+                  options_for_select(@states),
+                  class:'form-control'
+         )
+     %>
+     <% else %>
+     <label class="label label-success">
+       <%= @ticket.state %>
+     </label>
+     <% end %>
    </div>
      <%= f.submit class:'btn btn-success' %>
  </div>

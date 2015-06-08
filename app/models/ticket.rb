@@ -8,13 +8,16 @@ class Ticket < ActiveRecord::Base
 
   state_machine :state, :initial => :shelduled do
     event :current do
-      transition :shelduled => :in_work
+      transition [:shelduled,:deffered] => :in_work
     end
     event :done do
       transition [:in_work,:deffered] => :closed
     end
     event :paused do
       transition [:shelduled, :in_work] => :deffered
+    end
+    event :repeat do
+      transition [:deffered] => :shelduled
     end
   end
 

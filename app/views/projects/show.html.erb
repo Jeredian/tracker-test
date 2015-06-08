@@ -24,7 +24,7 @@
                 <% if ticket.state == state.name.to_s %>
                     <div class="label label-success col-md-12" style="padding: 10px;margin-bottom: 10px;">
                         <span>
-                            <%= link_to ticket.title, ticket %>
+                            <%= link_to ticket.title, ticket, style: 'color:#fff;' %>
                         </span>
                     </div>
                 <% end %>
