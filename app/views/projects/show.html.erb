@@ -1,0 +1,21 @@
+<article>
+  <header class="navbar navbar-default">
+    <div  class="navbar-text">
+      <b>
+        <%= @project.name %>
+      </b>
+    </div>
+    <div class="navbar-text">
+      <%= link_to 'New task', tickets_new_path, class: 'navbar-link' %>
+    </div>
+  </header>
+  <section id="scheduled" class="status-pane">
+    <h2>Scheduled:</h2>
+  </section>
+  <section id="current" class="status-pane current">
+    <h2>Current:</h2>
+  </section>
+  <section id="done" class="status-pane">
+    <h2>Done:</h2>
+  </section>
+</article>

@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   belongs_to :user_role
-  has_and_belongs_to_many :user_projects
+  has_and_belongs_to_many :projects
   has_many :tickets
 
   #validates :name,  presence: true

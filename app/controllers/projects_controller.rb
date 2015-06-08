@@ -1,9 +1,11 @@
 class ProjectsController < ApplicationController
 
   def index
-    @project_list = getProjectList()
-    #@current_user = current_user
-    #current_user
+    @project_list = Project.where(enabled: true)
+  end
+
+  def show
+    @project = Project.where(enabled: true, id: params[:id])
   end
 
   def new
