@@ -5,6 +5,8 @@ class TicketsController < ApplicationController
 
   def show
     @ticket = Ticket.find_by(enabled:true, id: params[:id])
+    @creator = User.find(@ticket.creator)
+    @worker = User.find(@ticket.worker)
   end
 
   def new
