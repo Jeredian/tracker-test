@@ -1,1 +1,13 @@
- Project's index page
+<span>Projects</span>
+<% unless @project_list.blank? %>
+    <ul id="project-list">
+      <% @project_list.each do |project| %>
+          <li>
+            <%= link_to project.name, project %>
+            <span>Total tickets: <%= project.tickets.length %></span>
+          </li>
+      <% end %>
+    </ul>
+<% else %>
+    <p>You don't have any projects. Contact with System Administrator</p>
+<% end %>

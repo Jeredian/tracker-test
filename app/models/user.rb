@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :user_projects
   has_many :tickets
 
-  validates :name,  presence: true,
-                    length: {minimum: 3}
+  #validates :name,  presence: true
+  #                  ,length: {minimum: 3}
   validates :email, presence: true,
                     length: {minimum: 1},
                     format: {with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}

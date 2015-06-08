@@ -10,6 +10,6 @@
                     {name: 'User',admin_panel: false, add_project:false}
                   ])
   User.create([
-                {name: 'root',email:'root@root.com', encrypted_password:'root' ,password: 'root',user_role_id:1},
-                {name: 'John Doe',email:'user@user.com',encrypted_password:'user', password: 'user',user_role_id:2}
+                {name: 'root',email:'root@root.com', encrypted_password:'$2a$10$gulV6Opxvo.1h2LcFoECfef8rSxEkK6GliW7YAyRt8roXaiXQyOvK', password: 'root@root.ru',user_role_id:1},
+                {name: 'John Doe',email:'user@user.com',encrypted_password:'$2a$10$pZHhxwCh9wPwYu3h/R6dyuDsv0eaJzjGNlyBfJ4Bc36qEG2fc535i', password: 'jadyjady',user_role_id:2}
               ])
