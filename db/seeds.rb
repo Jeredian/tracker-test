@@ -10,6 +10,6 @@
                     {name: 'User',admin_panel: false, add_project:false}
                   ])
   User.create([
-                {name: 'root',email:'root@root.com', password: 'root',user_role_id:1},
-                {name: 'John Doe',email:'user@user.com', password: 'user',user_role_id:2}
+                {name: 'root',email:'root@root.com', encrypted_password:'root' ,password: 'root',user_role_id:1},
+                {name: 'John Doe',email:'user@user.com',encrypted_password:'user', password: 'user',user_role_id:2}
               ])

@@ -1,4 +1,9 @@
 class ProjectsController < ApplicationController
+
+  def index
+    @project_list = current_user.projects
+  end
+
   def new
     @project = Project.new
     @project_list = getProjectList()

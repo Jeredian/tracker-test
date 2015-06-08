@@ -1,27 +1,26 @@
 Rails.application.routes.draw do
-  resources :tickets
-  resources :tickets
+
+  devise_for :users
+  #skip: [:sessions]
+
   get 'admin/show'
 
   get 'users/show'
-
   get 'users/new'
-
   get 'users/create'
   resources :users
 
   get 'projects/show'
   get 'projects/edit'
   get 'projects/new'
+  get 'projects/create'
   resources :projects
 
-  get 'projects/create'
 
   get 'tickets/new'
   resources :tickets
 
-  #root 'tickets#show'
-  root 'admin#show'
+  root 'projects#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
