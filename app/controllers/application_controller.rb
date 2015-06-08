@@ -10,8 +10,4 @@ class ApplicationController < ActionController::Base
       root_url
     end
   end
-
-  #def authenticate_user
-  #  @user_current = User.where(user_role_id: 1, enabled: true).find(1)
-  #end
 end

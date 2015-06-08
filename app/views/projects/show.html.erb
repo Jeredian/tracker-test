@@ -4,18 +4,48 @@
       <b>
         <%= @project.name %>
       </b>
+      <span>
+        [<%= @tickets.length %>]
+      </span>
     </div>
     <div class="navbar-text">
       <%= link_to 'New task', tickets_new_path, class: 'navbar-link' %>
     </div>
   </header>
-  <section id="scheduled" class="status-pane">
+  <div>
+    <% Ticket.state_machine.states.map.each do |state| %>
+        <section class="col-md-3" >
+            <div class="text-center text-info table-bordered">
+                <%= state.name %>
+            </div>
+            <br>
+            <div class="text-center">
+            <% @tickets.each do |ticket| %>
+                <% if ticket.state == state.name.to_s %>
+                    <div class="label label-success col-md-12" style="padding: 10px;margin-bottom: 10px;">
+                        <span>
+                            <%= link_to ticket.title, ticket %>
+                        </span>
+                    </div>
+                <% end %>
+            <% end %>
+            </div>
+        </section>
+    <% end %>
+  </div>
+
+  <!--
+   <section id="scheduled">
     <h2>Scheduled:</h2>
   </section>
-  <section id="current" class="status-pane current">
+  <section id="deffered">
+    <h2>Deffered:</h2>
+  </section>
+  <section id="current">
     <h2>Current:</h2>
   </section>
-  <section id="done" class="status-pane">
+  <section id="done">
     <h2>Done:</h2>
   </section>
+  -->
 </article>

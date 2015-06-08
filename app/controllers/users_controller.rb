@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user_list = getUserList()
+    @user_list = get_user_list
   end
 
   def new
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      @user_list = getUserList()
+      @user_list = get_user_list
       render action: 'show'
     else
       render action: 'edit'
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
   end
 
   private
-  def getUserList
+  def get_user_list
     return User.eager_load(:user_role).where(enabled: true)
     #, user_role: { enable:true }
     #.eager_load()

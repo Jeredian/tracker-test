@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'therubyracer'
 gem 'therubyrhino'
-gem 'state_machine'
+gem 'state_machine', git: 'https://github.com/seuros/state_machine.git'
 gem 'less-rails-bootstrap'
 gem 'less-rails'
 gem 'devise'

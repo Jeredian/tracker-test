@@ -1,16 +1,17 @@
 class ProjectsController < ApplicationController
 
   def index
-    @project_list = Project.where(enabled: true)
+    @project_list = get_project_list
   end
 
   def show
-    @project = Project.where(enabled: true, id: params[:id])
+    @project = Project.eager_load(:tickets).where(enabled: true, id: params[:id])
+    @tickets = Ticket.where(enabled: true, project_id: params[:id])
   end
 
   def new
     @project = Project.new
-    @project_list = getProjectList()
+    @project_list = get_project_list
   end
 
   def edit
@@ -22,7 +23,7 @@ class ProjectsController < ApplicationController
     if @project.new_record?
       if @project.save
         puts 'Project has been created.'
-        @project_list = getProjectList()
+        @project_list = get_project_list
         render action: 'new'
       end
     end
@@ -31,7 +32,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update(project_params)
-      @project_list = getProjectList()
+      @project_list = get_project_list
       render action: 'new'
     else
       render action: 'edit'
@@ -46,7 +47,7 @@ class ProjectsController < ApplicationController
       if @tickets.update_all(enabled: false)
         puts 'Project has not been deleted.'
       end
-      @project_list = getProjectList()
+      @project_list = get_project_list
       render action: 'new'
     else
       puts 'Something is wrong. :/'
@@ -60,7 +61,7 @@ class ProjectsController < ApplicationController
   end
 
   private
-  def getProjectList
+  def get_project_list
     return Project.where(enabled: true)
   end
 end

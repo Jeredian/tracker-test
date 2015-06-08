@@ -1,5 +1,5 @@
 <span>Projects</span>
-<% unless @project_list.blank? %>
+<% if !@project_list.blank? %>
     <ul id="project-list">
       <% @project_list.each do |project| %>
           <li>
